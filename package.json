@@ -1,0 +1,35 @@
+{
+  "name": "restify-health",
+  "version": "1.0.0",
+  "description": "An interface to check the health for your API server",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rickster13/restify-health.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "restify",
+    "health"
+  ],
+  "auhtor": "rickster13",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "chai": "^3.3.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jscs": "^3.0.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-mocha": "^2.1.3",
+    "jscs-stylish": "^0.3.1",
+    "mocha": "^2.3.4",
+    "supertest": "^1.1.0"
+  },
+  "dependencies": {
+    "restify": "^4.0.3",
+    "restify-router": "^0.2.1"
+  }
+
+}
