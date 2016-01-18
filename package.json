@@ -1,11 +1,11 @@
 {
-  "name": "restify-health",
+  "name": "restify-health-router",
   "version": "1.0.0",
   "description": "An interface to check the health for your API server",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rickster13/restify-health.git"
+    "url": "https://github.com/rickster13/restify-health-router.git"
   },
   "scripts": {
     "test": "mocha"
@@ -31,5 +31,4 @@
     "restify": "^4.0.3",
     "restify-router": "^0.2.1"
   }
-
 }
