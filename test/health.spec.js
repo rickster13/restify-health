@@ -42,7 +42,7 @@ describe('/health resource test', function () {
       .expect(200);
   });
 
-  it(`Should use the mentioned endpoint /tea and return specified status code: 200 OK`, function () {
+  it(`Should use the mentioned endpoint /tea and return specified status code: 418 OK`, function () {
 
     health(options).applyRoutes(server);
 
@@ -62,7 +62,7 @@ describe('/health resource test', function () {
         .expect(200);
   });
 
-  it(`Should default to /health endpoint and return 200 OK`, function () {
+  it(`Should return default values for endpoint and status code when options isn't present`, function () {
     health().applyRoutes(server);
 
     return request(server)
