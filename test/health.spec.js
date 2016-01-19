@@ -2,12 +2,8 @@
 
 const restify = require('restify');
 const request = require('supertest');
-const createHealthRouter = require('../lib/health.router');
-
-const DEFAULT_OPTIONS = {
-  ENDPOINT: '/health',
-  SUCCESS_CODE: 200
-}
+const createHealthRouter = require('../lib/health.router').create;
+const DEFAULT_OPTIONS = require('../lib/health.router').DEFAULT_OPTIONS;
 
 describe('health.router', function () {
   let server;
@@ -65,23 +61,17 @@ describe('health.router', function () {
     delete options.endpoint;
     delete options.successCode;
 
-    // FIXME(bbobnis): leverage DEFAULT_OPTIONS
-    expected.endpoint = '/health';
-    expected.successCode = 200;
+    expected.endpoint = DEFAULT_OPTIONS.ENDPOINT;
+    expected.successCode = DEFAULT_OPTIONS.SUCCESS_CODE;
 
     endpointShouldReturnSuccessCode(options, expected);
   });
 
   it('Should return default values for endpoint and status code when options isn\'t present', function () {
-    // FIXME(bbobnis): leverage DEFAULT_OPTIONS
+
     expected.endpoint = '/health';
     expected.successCode = 200;
 
     endpointShouldReturnSuccessCode(null, expected);
-  });
-
-  // TODO(bbobnis): UNIT TEST the Router (router.get)
-  it.only('yolo', () => {
-    console.log(createHealthRouter.get());
   });
 });
