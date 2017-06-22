@@ -34,7 +34,7 @@ describe('health.router', function () {
 
     return request(server)
       .get(expected.endpoint)
-      .expect(expected.successCode);
+      .expect(expected.successCode, expected.body);
   }
 
   it('Should default to /health endpoint and return specified status code: 418', function () {
@@ -73,5 +73,19 @@ describe('health.router', function () {
     expected.successCode = 200;
 
     endpointShouldReturnSuccessCode(null, expected);
+  });
+
+  it('Should return no message if one is not provided in options', function () {
+    expected.endpoint = '/health';
+    expected.successCode = 200;
+
+    endpointShouldReturnSuccessCode(null, expected);
+  });
+
+   it('Should return a message if one is provided in options', function () {
+    expected.endpoint = '/health';
+    expected.successCode = 200;
+    expected.endpoint = 'testMessage';
+    endpointShouldReturnSuccessCode({successMessage: 'testMessage'}, expected);
   });
 });
